@@ -48,4 +48,18 @@ public class Squad {
         return wins - losses;
     }
 
+    public Integer getFactionSymbol(){
+        if (faction == Faction.REBEL){
+            return R.drawable.symbol_rebel;
+        }
+        else if (faction == Faction.IMPERIAL){
+            return R.drawable.symbol_imperial;
+        }
+        else {
+            return R.drawable.symbol_scum;
+        }
+    }
+
+
+
 }

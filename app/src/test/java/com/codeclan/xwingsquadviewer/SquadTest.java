@@ -68,4 +68,10 @@ public class SquadTest {
         assertEquals(-1, squad1.getWinLossRatio());
     }
 
+    @Test
+    public void testCanGetFactionSymbol(){
+        Integer expected = R.drawable.symbol_rebel;
+        assertEquals(expected, squad1.getFactionSymbol());
+    }
+
 }
