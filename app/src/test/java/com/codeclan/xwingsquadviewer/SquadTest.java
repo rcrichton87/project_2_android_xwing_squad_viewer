@@ -24,4 +24,9 @@ public class SquadTest {
         assertEquals("Wedge Antilles, Luke Skywalker", squad1.getDetails());
     }
 
+    @Test
+    public void testWinsStartAtZero(){
+        assertEquals(0, squad1.getWins());
+    }
+
 }
