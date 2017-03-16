@@ -19,4 +19,9 @@ public class SquadTest {
         assertEquals("Rogue Squadron", squad1.getName());
     }
 
+    @Test
+    public void testCanGetDetails(){
+        assertEquals("Wedge Antilles, Luke Skywalker", squad1.getDetails());
+    }
+
 }
