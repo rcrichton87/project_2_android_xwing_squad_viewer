@@ -1,6 +1,6 @@
 package com.codeclan.xwingsquadviewer;
 
-enum Faction {
+public enum Faction {
 
     REBEL,
     IMPERIAL,
