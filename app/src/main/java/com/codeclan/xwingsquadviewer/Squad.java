@@ -36,4 +36,8 @@ public class Squad {
         return faction;
     }
 
+    public void addWin(){
+        wins++;
+    }
+
 }

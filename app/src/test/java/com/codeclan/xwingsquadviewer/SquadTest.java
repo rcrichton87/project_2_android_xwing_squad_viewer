@@ -40,4 +40,10 @@ public class SquadTest {
         assertEquals(REBEL, squad1.getFaction());
     }
 
+    @Test
+    public void testAddWin(){
+        squad1.addWin();
+        assertEquals(1, squad1.getWins());
+    }
+
 }
