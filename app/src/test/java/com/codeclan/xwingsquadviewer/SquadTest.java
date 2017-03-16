@@ -3,6 +3,7 @@ package com.codeclan.xwingsquadviewer;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.codeclan.xwingsquadviewer.Faction.*;
 import static org.junit.Assert.*;
 
 public class SquadTest {
@@ -11,7 +12,7 @@ public class SquadTest {
 
     @Before
     public void before(){
-        squad1 = new Squad("Rogue Squadron", "Wedge Antilles, Luke Skywalker", Faction.REBEL);
+        squad1 = new Squad("Rogue Squadron", "Wedge Antilles, Luke Skywalker", REBEL);
     }
 
     @Test
@@ -32,6 +33,11 @@ public class SquadTest {
     @Test
     public void testLossesStartAtZero(){
         assertEquals(0, squad1.getLosses());
+    }
+
+    @Test
+    public void testCanGetFaction(){
+        assertEquals(REBEL, squad1.getFaction());
     }
 
 }
