@@ -46,4 +46,18 @@ public class SquadTest {
         assertEquals(1, squad1.getWins());
     }
 
+    @Test
+    public void testAddLoss(){
+        squad1.addLoss();
+        assertEquals(1, squad1.getLosses());
+    }
+
+    @Test
+    public void testGetWinLossRatio(){
+        squad1.addWin();
+        squad1.addWin();
+        squad1.addLoss();
+        assertEquals(1, squad1.getWinLossRatio());
+    }
+
 }
