@@ -29,4 +29,9 @@ public class SquadTest {
         assertEquals(0, squad1.getWins());
     }
 
+    @Test
+    public void testLossesStartAtZero(){
+        assertEquals(0, squad1.getLosses());
+    }
+
 }
