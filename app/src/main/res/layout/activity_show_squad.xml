@@ -24,7 +24,7 @@
             android:layout_toEndOf="@id/faction_symbol"
             android:layout_toRightOf="@id/faction_symbol"
             android:textSize="32dp"
-            android:onClick="squadClicked"/>
+            />
 
     </RelativeLayout>
 

@@ -15,6 +15,8 @@ public class ShowSquad extends AppCompatActivity {
 
         Squad squad = (Squad) getIntent().getSerializableExtra("squad");
 
+        Log.d("Squad", squad.getName());
+
         ImageView factionSymbol = (ImageView) findViewById(R.id.faction_symbol);
         factionSymbol.setImageResource(squad.getFactionSymbol());
 

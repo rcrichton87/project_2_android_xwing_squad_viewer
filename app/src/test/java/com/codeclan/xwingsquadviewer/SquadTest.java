@@ -27,12 +27,14 @@ public class SquadTest {
 
     @Test
     public void testWinsStartAtZero(){
-        assertEquals(0, squad1.getWins());
+        Integer expected = 0;
+        assertEquals(expected, squad1.getWins());
     }
 
     @Test
     public void testLossesStartAtZero(){
-        assertEquals(0, squad1.getLosses());
+        Integer expected = 0;
+        assertEquals(expected, squad1.getLosses());
     }
 
     @Test
@@ -43,13 +45,15 @@ public class SquadTest {
     @Test
     public void testAddWin(){
         squad1.addWin();
-        assertEquals(1, squad1.getWins());
+        Integer expected = 1;
+        assertEquals(expected, squad1.getWins());
     }
 
     @Test
     public void testAddLoss(){
         squad1.addLoss();
-        assertEquals(1, squad1.getLosses());
+        Integer expected = 1;
+        assertEquals(expected, squad1.getLosses());
     }
 
     @Test

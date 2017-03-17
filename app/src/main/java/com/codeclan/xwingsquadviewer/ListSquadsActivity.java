@@ -24,9 +24,8 @@ public class ListSquadsActivity extends AppCompatActivity {
         listView.setAdapter(squadsAdapter);
     }
 
-    public void squadClicked(View squad_name){
-        TextView squadName = (TextView) squad_name;
-        Squad squad = (Squad) squadName.getTag();
+    public void squadClicked(View squad_item){
+        Squad squad = (Squad) squad_item.getTag();
         Intent intent = new Intent(this, ShowSquad.class);
         intent.putExtra("squad", squad);
         startActivity(intent);

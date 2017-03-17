@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/squad_item"
+    android:onClick="squadClicked">
 
     <ImageView
         android:id="@+id/faction_symbol"
@@ -21,7 +23,7 @@
         android:layout_toEndOf="@id/faction_symbol"
         android:layout_toRightOf="@id/faction_symbol"
         android:textSize="32dp"
-        android:onClick="squadClicked"/>
+        />
 
     <TextView
         android:id="@+id/squad_wins_losses"

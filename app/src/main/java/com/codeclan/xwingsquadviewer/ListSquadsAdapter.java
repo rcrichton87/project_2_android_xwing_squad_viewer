@@ -27,15 +27,20 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
 
         Squad currentSquad = getItem(position);
 
+        listItemView.setTag(currentSquad);
+
         ImageView factionSymbol = (ImageView) listItemView.findViewById(R.id.faction_symbol);
         factionSymbol.setImageResource(currentSquad.getFactionSymbol());
+        factionSymbol.setTag(currentSquad);
 
         TextView squadName = (TextView) listItemView.findViewById(R.id.squad_name);
         squadName.setText(currentSquad.getName());
         squadName.setTag(currentSquad);
 
+
         TextView squadWinLossRatio = (TextView) listItemView.findViewById(R.id.squad_wins_losses);
         squadWinLossRatio.setText(currentSquad.getWinLossRatio().toString());
+        squadWinLossRatio.setTag(currentSquad);
 
 
 
