@@ -57,7 +57,8 @@ public class SquadTest {
         squad1.addWin();
         squad1.addWin();
         squad1.addLoss();
-        assertEquals(1, squad1.getWinLossRatio());
+        Integer expected = 1;
+        assertEquals(expected, squad1.getWinLossRatio());
     }
 
     @Test
@@ -65,7 +66,8 @@ public class SquadTest {
         squad1.addWin();
         squad1.addLoss();
         squad1.addLoss();
-        assertEquals(-1, squad1.getWinLossRatio());
+        Integer expected = -1;
+        assertEquals(expected, squad1.getWinLossRatio());
     }
 
     @Test

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
@@ -25,6 +26,17 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
         }
 
         Squad currentSquad = getItem(position);
+
+        ImageView factionSymbol = (ImageView) listItemView.findViewById(R.id.faction_symbol);
+        factionSymbol.setImageResource(currentSquad.getFactionSymbol());
+
+        TextView squadName = (TextView) listItemView.findViewById(R.id.squad_name);
+        squadName.setText(currentSquad.getName());
+
+        TextView squadWinLossRatio = (TextView) listItemView.findViewById(R.id.squad_wins_losses);
+        squadWinLossRatio.setText(currentSquad.getWinLossRatio().toString());
+
+        return listItemView;
 
 
     }

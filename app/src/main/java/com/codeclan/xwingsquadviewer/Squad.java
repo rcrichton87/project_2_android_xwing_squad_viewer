@@ -44,7 +44,7 @@ public class Squad {
         losses++;
     }
 
-    public int getWinLossRatio(){
+    public Integer getWinLossRatio(){
         return wins - losses;
     }
 

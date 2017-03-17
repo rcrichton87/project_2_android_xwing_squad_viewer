@@ -20,4 +20,8 @@ public class ListSquadsActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(squadsAdapter);
     }
+
+    public void squadClicked(){
+
+    }
 }
