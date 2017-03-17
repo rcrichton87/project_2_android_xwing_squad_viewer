@@ -32,9 +32,12 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
 
         TextView squadName = (TextView) listItemView.findViewById(R.id.squad_name);
         squadName.setText(currentSquad.getName());
+        squadName.setTag(currentSquad);
 
         TextView squadWinLossRatio = (TextView) listItemView.findViewById(R.id.squad_wins_losses);
         squadWinLossRatio.setText(currentSquad.getWinLossRatio().toString());
+
+
 
         return listItemView;
 

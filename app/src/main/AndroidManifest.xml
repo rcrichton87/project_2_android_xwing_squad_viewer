@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListSquadsAdapter"></activity>
+        <activity android:name=".ListSquadsAdapter" />
+        <activity android:name=".ShowSquad"></activity>
     </application>
 
 </manifest>

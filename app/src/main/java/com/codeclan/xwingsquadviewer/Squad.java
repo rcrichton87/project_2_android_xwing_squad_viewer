@@ -1,11 +1,13 @@
 package com.codeclan.xwingsquadviewer;
 
-public class Squad {
+import java.io.Serializable;
+
+public class Squad implements Serializable{
 
     String name;
     String details;
-    int wins;
-    int losses;
+    Integer wins;
+    Integer losses;
     Faction faction;
 
     public Squad(String name, String details, Faction faction){
@@ -24,11 +26,11 @@ public class Squad {
         return details;
     }
 
-    public int getWins() {
+    public Integer getWins() {
         return wins;
     }
 
-    public int getLosses() {
+    public Integer getLosses() {
         return losses;
     }
 
