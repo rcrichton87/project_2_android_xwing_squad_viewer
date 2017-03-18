@@ -2,4 +2,5 @@
     <string name="app_name">XwingSquadViewer</string>
     <string name="add_win">Add Win!</string>
     <string name="add_loss">Add Loss!</string>
+    <string name="new_squad">New Squad</string>
 </resources>
