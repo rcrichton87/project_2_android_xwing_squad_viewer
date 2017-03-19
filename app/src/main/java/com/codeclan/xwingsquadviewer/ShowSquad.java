@@ -37,6 +37,7 @@ public class ShowSquad extends AppCompatActivity {
 
         Log.d("json", squadString);
         Log.d("Squad from json", squad.toString());
+        Log.d("Squad id", squad.getId().toString());
 
 
         ImageView factionSymbol = (ImageView) findViewById(R.id.faction_symbol);
@@ -71,7 +72,7 @@ public class ShowSquad extends AppCompatActivity {
         Log.d("Squad list", squadList.toString());
 
         for (Squad listSquad : squadList){
-            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails()) && listSquad.getWins().equals(squad.getWins()) && listSquad.getLosses().equals(squad.getLosses()) && listSquad.getFaction().equals(squad.getFaction())){
+            if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.addWin();
             }
         }
@@ -105,7 +106,7 @@ public class ShowSquad extends AppCompatActivity {
         Log.d("Squad list", squadList.toString());
 
         for (Squad listSquad : squadList){
-            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails()) && listSquad.getWins().equals(squad.getWins()) && listSquad.getLosses().equals(squad.getLosses()) && listSquad.getFaction().equals(squad.getFaction())){
+            if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.addLoss();
             }
         }
