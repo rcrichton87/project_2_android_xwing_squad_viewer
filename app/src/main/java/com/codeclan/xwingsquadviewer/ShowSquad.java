@@ -71,7 +71,7 @@ public class ShowSquad extends AppCompatActivity {
         Log.d("Squad list", squadList.toString());
 
         for (Squad listSquad : squadList){
-            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails())){
+            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails()) && listSquad.getWins().equals(squad.getWins()) && listSquad.getLosses().equals(squad.getLosses()) && listSquad.getFaction().equals(squad.getFaction())){
                 listSquad.addWin();
             }
         }
@@ -100,12 +100,12 @@ public class ShowSquad extends AppCompatActivity {
 
         //remove the squad from the list, modify it, then add the modified squad
         Boolean squadFound = squadList.contains(squad); //this returns false
-        Log.d("Squad found .contains", squadFound.toString()); //the squad object from getSerializableExtra a different object to the one in setTag in ListSquadsAdapter and getTag in ListSquadsActivity
+        Log.d("Squad found .contains", squadFound.toString()); //it looks like the json gives a different object
 
         Log.d("Squad list", squadList.toString());
 
         for (Squad listSquad : squadList){
-            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails())){
+            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails()) && listSquad.getWins().equals(squad.getWins()) && listSquad.getLosses().equals(squad.getLosses()) && listSquad.getFaction().equals(squad.getFaction())){
                 listSquad.addLoss();
             }
         }
