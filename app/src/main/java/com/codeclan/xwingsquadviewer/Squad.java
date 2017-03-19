@@ -1,6 +1,7 @@
 package com.codeclan.xwingsquadviewer;
 
 import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Squad implements Serializable{
 
@@ -9,6 +10,8 @@ public class Squad implements Serializable{
     Integer wins;
     Integer losses;
     Faction faction;
+    static AtomicInteger nextId = new AtomicInteger();
+    Integer id;
 
     public Squad(String name, String details, Faction faction){
         this.name = name;
@@ -16,6 +19,7 @@ public class Squad implements Serializable{
         this.wins = 0;
         this.losses = 0;
         this.faction = faction;
+        this.id = nextId.incrementAndGet();
     }
 
     public String getName() {
@@ -60,6 +64,10 @@ public class Squad implements Serializable{
         else {
             return R.drawable.symbol_scum;
         }
+    }
+
+    public Integer getId(){
+        return id;
     }
 
 

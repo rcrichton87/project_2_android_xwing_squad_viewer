@@ -80,4 +80,10 @@ public class SquadTest {
         assertEquals(expected, squad1.getFactionSymbol());
     }
 
+
+    @Test
+    public void testSquadHasId(){
+        assertNotNull(squad1.getId());
+    }
+
 }
