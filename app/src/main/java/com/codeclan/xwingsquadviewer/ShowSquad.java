@@ -28,9 +28,16 @@ public class ShowSquad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_squad);
 
-        squad = (Squad) getIntent().getSerializableExtra("squad");
+        //load the squad from json
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String squadString = sharedPref.getString("individualSquad", "Nothing Found");
+        TypeToken<Squad> squadTypeToken = new TypeToken<Squad>(){};
+        squad = gson.fromJson(squadString, squadTypeToken.getType());
 
-        Log.d("Squad SerializExtra", squad.toString());
+        Log.d("json", squadString);
+        Log.d("Squad from json", squad.toString());
+
 
         ImageView factionSymbol = (ImageView) findViewById(R.id.faction_symbol);
         factionSymbol.setImageResource(squad.getFactionSymbol());
@@ -63,9 +70,11 @@ public class ShowSquad extends AppCompatActivity {
 
         Log.d("Squad list", squadList.toString());
 
-
-        squad.addWin();
-        squadList.add(squad);
+        for (Squad listSquad : squadList){
+            if (listSquad.getName().equals(squad.getName()) && listSquad.getDetails().equals(squad.getDetails())){
+                listSquad.addWin();
+            }
+        }
 
         //save the updated list to the SharedPreferences
         SharedPreferences.Editor editor = sharedPref.edit();

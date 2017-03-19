@@ -53,9 +53,19 @@ public class ListSquadsActivity extends AppCompatActivity {
 
     public void squadClicked(View squad_item){
         Squad squad = (Squad) squad_item.getTag();
+
+        // save the squad as json
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("individualSquad", gson.toJson(squad));
+        editor.apply();
+
+        Log.d("squad in json", squad.toString());
+        Log.d("squad as json", gson.toJson(squad));
+
         Intent intent = new Intent(this, ShowSquad.class);
-        Log.d("Squad put into extras", squad.toString());
-        intent.putExtra("squad", squad);
+
         startActivity(intent);
     }
 
