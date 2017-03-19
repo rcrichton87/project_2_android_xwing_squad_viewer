@@ -32,7 +32,6 @@ public class ListSquadsActivity extends AppCompatActivity {
 //        list = squadList.getSquadList();
 
         //setting up a default string if sharedPref is empty
-
         SquadList defaultSquadList = new SquadList();
         ArrayList<Squad> defaultSquadArrayList = defaultSquadList.getSquadList();
 
@@ -43,7 +42,7 @@ public class ListSquadsActivity extends AppCompatActivity {
         String squads = sharedPref.getString("squadList", defaultSquads);
         Log.d("squads json", squads);
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        ArrayList<Squad> list = gson.fromJson(squads, squadArrayList.getType());
+        list = gson.fromJson(squads, squadArrayList.getType());
 
 
         ListSquadsAdapter squadsAdapter = new ListSquadsAdapter(this, list);

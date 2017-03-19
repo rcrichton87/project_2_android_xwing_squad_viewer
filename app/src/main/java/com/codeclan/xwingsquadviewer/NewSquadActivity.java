@@ -77,13 +77,8 @@ public class NewSquadActivity extends AppCompatActivity {
         //create a new squad
         name = squadName.getText().toString();
         details = squadDetails.getText().toString();
+        squad = new Squad(name, details, faction);
 
-        if (faction != null){
-            squad = new Squad(name, details, faction);
-        } else {
-            Toast.makeText(NewSquadActivity.this, "Please select a faction", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         Log.d("Squad", squad.toString());
         Log.d("Squad name", squad.getName());
@@ -99,8 +94,7 @@ public class NewSquadActivity extends AppCompatActivity {
         squadList.add(squad);
         Log.d("Squad List", squadList.toString());
 
-
-        //save the new squad to the SharedPreferences
+        //save the updated list to the SharedPreferences
         SharedPreferences.Editor editor = sharedPref.edit();
         Log.d("squadlist json", gson.toJson(squadList));
         editor.putString("squadList", gson.toJson(squadList));

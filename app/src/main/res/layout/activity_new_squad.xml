@@ -30,7 +30,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:checkedButton="@id/faction_rebel">
+        android:checkedButton="@+id/faction_rebel">
         <RadioButton android:id="@+id/faction_rebel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
