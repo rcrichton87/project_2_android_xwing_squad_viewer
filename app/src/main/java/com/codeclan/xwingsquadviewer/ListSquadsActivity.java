@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ListSquadsActivity extends AppCompatActivity {
 
@@ -45,6 +46,8 @@ public class ListSquadsActivity extends AppCompatActivity {
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
         list = gson.fromJson(squads, squadArrayList.getType());
 
+        //sort the list based on the win/loss ratio
+        Collections.sort(list);
 
         ListSquadsAdapter squadsAdapter = new ListSquadsAdapter(this, list);
         ListView listView = (ListView) findViewById(R.id.list);

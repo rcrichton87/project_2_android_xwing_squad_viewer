@@ -3,7 +3,7 @@ package com.codeclan.xwingsquadviewer;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Squad implements Serializable{
+public class Squad implements Comparable<Squad>{
 
     String name;
     String details;
@@ -71,5 +71,17 @@ public class Squad implements Serializable{
     }
 
 
+    //allows squads to be compared by their win/loss ratios using collections.sort(ArrayList)
+    @Override
+    public int compareTo(Squad compareSquad){
+        int compareWinLoss=((Squad)compareSquad).getWinLossRatio();
+        if (compareWinLoss > this.getWinLossRatio()){
+            return 1;
+        } else if (compareWinLoss < this.getWinLossRatio()){
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 
 }

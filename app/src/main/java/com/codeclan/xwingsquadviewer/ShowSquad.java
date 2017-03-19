@@ -65,7 +65,7 @@ public class ShowSquad extends AppCompatActivity {
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
         squadList = gson.fromJson(squads, squadArrayList.getType());
 
-        //remove the squad from the list, modify it, then add the modified squad
+        //modify the squad in the squadList
         Boolean squadFound = squadList.contains(squad); //this returns false
         Log.d("Squad found .contains", squadFound.toString()); //the squad object from getSerializableExtra a different object to the one in setTag in ListSquadsAdapter and getTag in ListSquadsActivity
 
@@ -84,8 +84,6 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        //intent.putExtra("squad", squad);
-        //finish();
         Toast.makeText(ShowSquad.this, "Win added for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
 
@@ -99,7 +97,7 @@ public class ShowSquad extends AppCompatActivity {
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
         squadList = gson.fromJson(squads, squadArrayList.getType());
 
-        //remove the squad from the list, modify it, then add the modified squad
+        //modify a squad in the squadList
         Boolean squadFound = squadList.contains(squad); //this returns false
         Log.d("Squad found .contains", squadFound.toString()); //it looks like the json gives a different object
 
@@ -118,8 +116,6 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        //intent.putExtra("squad", squad);
-        //finish();
         Toast.makeText(ShowSquad.this, "Loss added for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
