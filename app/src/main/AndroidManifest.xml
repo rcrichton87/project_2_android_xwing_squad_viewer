@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".ListSquadsAdapter" />
         <activity android:name=".ShowSquad"></activity>
+        <activity android:name=".NewSquadActivity"></activity>
     </application>
 
 </manifest>

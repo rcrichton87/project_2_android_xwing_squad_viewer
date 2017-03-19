@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">XwingSquadViewer</string>
+    <string name="app_name">X-Wing Squad Viewer</string>
     <string name="add_win">Add Win!</string>
     <string name="add_loss">Add Loss!</string>
     <string name="new_squad">New Squad</string>
+    <string name="new_name">Enter a squad name</string>
+    <string name="save_squad_button">Save Squad</string>
+    <string name="new_details">Enter squad details</string>
+    <string name="faction_rebel">Rebel</string>
+    <string name="faction_imperial">Imperial</string>
+    <string name="faction_scum"><![CDATA[Scum & Villany]]></string>
 </resources>

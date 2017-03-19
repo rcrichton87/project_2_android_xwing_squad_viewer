@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/new_squad_name"
+        android:textSize="24dp"
+        android:hint="@string/new_name"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/new_squad_details"
+        android:textSize="24dp"
+        android:hint="@string/new_details"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/new_squad_faction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:checkedButton="@id/faction_rebel">
+        <RadioButton android:id="@+id/faction_rebel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/faction_rebel"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/faction_imperial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/faction_imperial"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/faction_scum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/faction_scum"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/save_button"
+        android:text="@string/save_squad_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:onClick="onSaveButtonClicked"/>
+
+</LinearLayout>
