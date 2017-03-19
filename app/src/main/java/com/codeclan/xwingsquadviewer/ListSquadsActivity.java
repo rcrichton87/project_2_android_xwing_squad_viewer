@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -53,6 +54,7 @@ public class ListSquadsActivity extends AppCompatActivity {
     public void squadClicked(View squad_item){
         Squad squad = (Squad) squad_item.getTag();
         Intent intent = new Intent(this, ShowSquad.class);
+        Log.d("Squad put into extras", squad.toString());
         intent.putExtra("squad", squad);
         startActivity(intent);
     }
@@ -68,6 +70,29 @@ public class ListSquadsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         if(item.getItemId() == R.id.action_new_squad){
             Intent intent = new Intent(this, NewSquadActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if(item.getItemId() == R.id.clear_list){
+            //loading squads from SharedPreferences
+            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+            Gson gson = new Gson();
+            String squads = sharedPref.getString("squadList", "None found.");
+            Log.d("squads json", squads);
+            TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
+            list = gson.fromJson(squads, squadArrayList.getType());
+
+            //clear the list
+            list.clear();
+
+            //save the updated list to the SharedPreferences
+            SharedPreferences.Editor editor = sharedPref.edit();
+            Log.d("squadlist json", gson.toJson(list));
+            editor.putString("squadList", gson.toJson(list));
+            editor.apply();
+            Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
+
+            Intent intent = getIntent();
             startActivity(intent);
             return true;
         }

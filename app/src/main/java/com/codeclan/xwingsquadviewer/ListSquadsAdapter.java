@@ -2,6 +2,7 @@ package com.codeclan.xwingsquadviewer;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
         Squad currentSquad = getItem(position);
 
         listItemView.setTag(currentSquad);
+        Log.d("setTag Squad", currentSquad.toString());
 
         ImageView factionSymbol = (ImageView) listItemView.findViewById(R.id.faction_symbol);
         factionSymbol.setImageResource(currentSquad.getFactionSymbol());

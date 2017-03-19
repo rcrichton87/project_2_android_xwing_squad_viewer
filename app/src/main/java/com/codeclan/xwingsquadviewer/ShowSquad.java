@@ -21,6 +21,7 @@ public class ShowSquad extends AppCompatActivity {
 
     Squad squad;
     public static final String SQUADS = "squads";
+    ArrayList<Squad> squadList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class ShowSquad extends AppCompatActivity {
 
         squad = (Squad) getIntent().getSerializableExtra("squad");
 
-        Log.d("Squad", squad.getName());
+        Log.d("Squad SerializExtra", squad.toString());
 
         ImageView factionSymbol = (ImageView) findViewById(R.id.faction_symbol);
         factionSymbol.setImageResource(squad.getFactionSymbol());
@@ -54,13 +55,15 @@ public class ShowSquad extends AppCompatActivity {
         Gson gson = new Gson();
         String squads = sharedPref.getString("squadList", "Nothing Found");
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        ArrayList<Squad> squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = gson.fromJson(squads, squadArrayList.getType());
 
         //remove the squad from the list, modify it, then add the modified squad
-        Boolean squadFound = squadList.contains(squad);
-        Log.d("Squad found", squadFound.toString());
-        
-        squadList.remove(squad);
+        Boolean squadFound = squadList.contains(squad); //this returns false
+        Log.d("Squad found .contains", squadFound.toString()); //the squad object from getSerializableExtra a different object to the one in setTag in ListSquadsAdapter and getTag in ListSquadsActivity
+
+        Log.d("Squad list", squadList.toString());
+
+
         squad.addWin();
         squadList.add(squad);
 
