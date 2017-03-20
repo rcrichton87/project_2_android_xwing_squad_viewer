@@ -18,12 +18,11 @@
 
     <TextView
         android:id="@+id/squad_name"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/faction_symbol"
-        android:layout_toRightOf="@id/faction_symbol"
         android:textSize="32dp"
-        />
+        android:layout_toEndOf="@id/faction_symbol"
+        android:layout_toRightOf="@id/faction_symbol"/>
 
     <TextView
         android:id="@+id/squad_wins_losses"
@@ -34,7 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:textSize="64dp"
-        />
+        android:textSize="64dp" />
 
 </RelativeLayout>

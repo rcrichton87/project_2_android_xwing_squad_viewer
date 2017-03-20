@@ -4,4 +4,6 @@
         android:title="@string/new_squad" />
     <item android:id="@+id/clear_list"
         android:title="@string/clear_list" />
+    <item android:id="@+id/action_rebel_only"
+        android:title="@string/rebel_only" />
 </menu>

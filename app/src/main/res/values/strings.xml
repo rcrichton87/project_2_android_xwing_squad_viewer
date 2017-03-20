@@ -11,4 +11,5 @@
     <string name="faction_scum"><![CDATA[Scum & Villany]]></string>
     <string name="clear_list">Delete Saved Squads</string>
     <string name="delete_squad">Delete Squad!</string>
+    <string name="rebel_only">Only show Rebels</string>
 </resources>

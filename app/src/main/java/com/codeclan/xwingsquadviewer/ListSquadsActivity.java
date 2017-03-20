@@ -29,10 +29,6 @@ public class ListSquadsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.squads_list);
 
-        //creating squad list from presets
-//        SquadList squadList = new SquadList();
-//        list = squadList.getSquadList();
-
         //setting up a default string if sharedPref is empty
         SquadList defaultSquadList = new SquadList();
         ArrayList<Squad> defaultSquadArrayList = defaultSquadList.getSquadList();
@@ -86,19 +82,15 @@ public class ListSquadsActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
         if(item.getItemId() == R.id.clear_list){
-            //loading squads from SharedPreferences
-            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-            Gson gson = new Gson();
-            String squads = sharedPref.getString("squadList", "None found.");
-            Log.d("squads json", squads);
-            TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-            list = gson.fromJson(squads, squadArrayList.getType());
 
             //clear the list
             list.clear();
 
             //save the updated list to the SharedPreferences
+            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+            Gson gson = new Gson();
             SharedPreferences.Editor editor = sharedPref.edit();
             Log.d("squadlist json", gson.toJson(list));
             editor.putString("squadList", gson.toJson(list));
@@ -106,6 +98,29 @@ public class ListSquadsActivity extends AppCompatActivity {
             Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
 
             Intent intent = getIntent();
+            startActivity(intent);
+            return true;
+        }
+
+        if(item.getItemId() == R.id.action_rebel_only){
+
+            //make a list of filtered squads
+            ArrayList<Squad> filteredSquads = new ArrayList<>();
+            for (Squad squad : list ) {
+                if (squad.getFaction() == Faction.REBEL){
+                    filteredSquads.add(squad);
+                }
+            }
+
+            //save the filtered list to the SharedPreferences
+            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+            Gson gson = new Gson();
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("filteredList", gson.toJson(filteredSquads));
+            Log.d("FilteredList", gson.toJson(list));
+            editor.apply();
+
+            Intent intent = new Intent(this, FilteredListActivity.class);
             startActivity(intent);
             return true;
         }
