@@ -10,4 +10,6 @@
     android:title="@string/imperial_only" />
     <item android:id="@+id/action_scum_only"
         android:title="@string/scum_only" />
+    <item android:id="@+id/action_roll_dice"
+        android:title="@string/roll_dice" />
 </menu>

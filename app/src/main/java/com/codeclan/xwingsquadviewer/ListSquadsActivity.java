@@ -70,14 +70,18 @@ public class ListSquadsActivity extends AppCompatActivity {
         return true;
     }
 
+
+    //the dropdown menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        //new squad menu item
         if(item.getItemId() == R.id.action_new_squad){
             Intent intent = new Intent(this, NewSquadActivity.class);
             startActivity(intent);
             return true;
         }
 
+        //clear the list menu item
         if(item.getItemId() == R.id.clear_list){
 
             //clear the list
@@ -97,8 +101,8 @@ public class ListSquadsActivity extends AppCompatActivity {
             return true;
         }
 
+        //filter by rebel
         if(item.getItemId() == R.id.action_rebel_only){
-
             //make a list of filtered squads
             ArrayList<Squad> filteredSquads = new ArrayList<>();
             for (Squad squad : list ) {
@@ -120,6 +124,7 @@ public class ListSquadsActivity extends AppCompatActivity {
             return true;
         }
 
+        //filter by imperial
         if(item.getItemId() == R.id.action_imperial_only){
 
             //make a list of filtered squads
@@ -143,6 +148,7 @@ public class ListSquadsActivity extends AppCompatActivity {
             return true;
         }
 
+        //filter by scum
         if(item.getItemId() == R.id.action_scum_only){
 
             //make a list of filtered squads
@@ -165,6 +171,14 @@ public class ListSquadsActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
+        //go to the dice roller
+        if(item.getItemId() == R.id.action_roll_dice){
+            Intent intent = new Intent(this, RollDiceActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
