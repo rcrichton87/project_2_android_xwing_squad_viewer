@@ -25,6 +25,43 @@
         android:layout_toRightOf="@id/faction_symbol"/>
 
     <TextView
+        android:id="@+id/squad_total_games"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/faction_symbol"
+        android:layout_toRightOf="@id/faction_symbol"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/squad_wins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/squad_total_games"
+        android:layout_toRightOf="@id/squad_total_games"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        android:textColor="@color/winGreen"/>
+
+
+    <TextView
+        android:id="@+id/squad_losses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/squad_wins"
+        android:layout_toRightOf="@id/squad_wins"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        android:textColor="@color/lossRed"/>
+
+
+    <TextView
         android:id="@+id/squad_wins_losses"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

@@ -116,9 +116,7 @@ public class RollDiceActivity extends AppCompatActivity {
             }
         }
 
-        Intent intent = new Intent(this, RollDiceActivity.class);
-        intent.putExtra("rollResults", rollResultString);
-        startActivity(intent);
+        rollResults.setText(rollResultString);
 
 
     }

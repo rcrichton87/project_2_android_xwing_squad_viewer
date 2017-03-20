@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class ListSquadsAdapter extends ArrayAdapter<Squad> {
@@ -37,6 +40,16 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
 
         TextView squadName = (TextView) listItemView.findViewById(R.id.squad_name);
         squadName.setText(currentSquad.getName());
+
+        TextView squadTotalGames = (TextView) listItemView.findViewById(R.id.squad_total_games);
+        Integer totalGames = currentSquad.getWins() + currentSquad.getLosses();
+        squadTotalGames.setText("Total games: " + totalGames.toString());
+
+        TextView squadWins = (TextView) listItemView.findViewById(R.id.squad_wins);
+        squadWins.setText("Wins: " + currentSquad.getWins().toString());
+
+        TextView squadLosses = (TextView) listItemView.findViewById(R.id.squad_losses);
+        squadLosses.setText("Losses: " + currentSquad.getLosses().toString());
 
         TextView squadWinLossRatio = (TextView) listItemView.findViewById(R.id.squad_wins_losses);
         squadWinLossRatio.setText(currentSquad.getWinLossRatio().toString());
