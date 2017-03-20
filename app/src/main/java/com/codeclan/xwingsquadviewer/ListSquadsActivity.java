@@ -29,15 +29,10 @@ public class ListSquadsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.squads_list);
 
-        //setting up a default string if sharedPref is empty
-        SquadList defaultSquadList = new SquadList();
-        ArrayList<Squad> defaultSquadArrayList = defaultSquadList.getSquadList();
-
         //loading squads from SharedPreferences
         SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
         Gson gson = new Gson();
-        String defaultSquads = gson.toJson(defaultSquadArrayList);
-        String squads = sharedPref.getString("squadList", defaultSquads);
+        String squads = sharedPref.getString("squadList", "Nothing Found");
         Log.d("squads json", squads);
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
         list = gson.fromJson(squads, squadArrayList.getType());
