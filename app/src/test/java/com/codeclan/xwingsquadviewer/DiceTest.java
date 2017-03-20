@@ -40,4 +40,9 @@ public class DiceTest {
         assertNotNull(attackDice.roll());
     }
 
+    @Test
+    public void rollDefenceDiceNotNull(){
+        assertNotNull(defenceDice.roll());
+    }
+
 }
