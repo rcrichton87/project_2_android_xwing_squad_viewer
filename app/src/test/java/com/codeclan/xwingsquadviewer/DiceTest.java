@@ -20,4 +20,9 @@ public class DiceTest {
         assertEquals(8, attackDice.getLength());
     }
 
+    @Test
+    public void testDefenceDiceHasEightResults(){
+        assertEquals(8, defenceDice.getLength());
+    }
+
 }
