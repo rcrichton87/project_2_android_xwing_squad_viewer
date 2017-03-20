@@ -37,7 +37,7 @@ public class DiceTest {
 
     @Test
     public void rollAttackDiceNotNull(){
-        
+        assertNotNull(attackDice.roll());
     }
 
 }
