@@ -5,76 +5,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codeclan.xwingsquadviewer.RollDiceActivity">
+    tools:context="com.codeclan.xwingsquadviewer.RollDiceActivity"
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/select_dice_type"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="36dp"/>
 
     <RadioGroup
         android:id="@+id/dice_type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:checkedButton="@+id/attack_dice">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/attack_dice"
+        android:weightSum="2"
+        android:layout_marginBottom="30dp">
         <RadioButton android:id="@+id/attack_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/attack_dice"/>
+            android:text="@string/attack_dice"
+            android:textSize="24dp"
+            android:layout_weight="1"/>
         <RadioButton android:id="@+id/defence_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/defence_dice"/>
+            android:text="@string/defence_dice"
+            android:textSize="24dp"
+            android:layout_weight="1"/>
     </RadioGroup>
 
     <TextView
         android:id="@+id/select_dice_number"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="36dp"/>
 
     <RadioGroup
         android:id="@+id/number_of_dice"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:checkedButton="@+id/one_dice">
+        android:orientation="horizontal"
+        android:checkedButton="@+id/one_dice"
+        android:weightSum="6"
+        android:layout_marginBottom="30dp">
         <RadioButton android:id="@+id/one_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/one"/>
+            android:text="@string/one"
+            android:layout_weight="1"
+            android:textSize="24dp"/>
         <RadioButton android:id="@+id/two_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/two"/>
+            android:text="@string/two"
+            android:layout_weight="1"
+            android:textSize="24dp"/>
         <RadioButton android:id="@+id/three_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/three"/>
+            android:text="@string/three"
+            android:layout_weight="1"
+            android:textSize="24dp"/>
         <RadioButton android:id="@+id/four_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/four"/>
+            android:text="@string/four"
+            android:layout_weight="1"
+            android:textSize="24dp"/>
         <RadioButton android:id="@+id/five_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/five"/>
+            android:text="@string/five"
+            android:layout_weight="1"
+            android:textSize="24dp"/>
         <RadioButton android:id="@+id/six_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/six"/>
+            android:text="@string/six"
+            android:layout_weight="1"
+            android:textSize="24dp"/>
     </RadioGroup>
 
     <TextView
         android:id="@+id/roll_results"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="36dp"
+        android:layout_marginBottom="30dp"/>
 
     <Button
         android:id="@+id/roll_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="rollButtonClicked"
-        android:text="@string/roll_button"/>
+        android:text="@string/roll_button"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"/>
 
 </LinearLayout>
