@@ -124,6 +124,29 @@ public class ListSquadsActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
+        if(item.getItemId() == R.id.action_imperial_only){
+
+            //make a list of filtered squads
+            ArrayList<Squad> filteredSquads = new ArrayList<>();
+            for (Squad squad : list ) {
+                if (squad.getFaction() == Faction.IMPERIAL){
+                    filteredSquads.add(squad);
+                }
+            }
+
+            //save the filtered list to the SharedPreferences
+            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+            Gson gson = new Gson();
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("filteredList", gson.toJson(filteredSquads));
+            Log.d("FilteredList", gson.toJson(list));
+            editor.apply();
+
+            Intent intent = new Intent(this, FilteredListActivity.class);
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
