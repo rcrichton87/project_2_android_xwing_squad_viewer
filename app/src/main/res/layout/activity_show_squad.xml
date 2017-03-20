@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/faction_symbol"
             android:layout_toRightOf="@id/faction_symbol"
-            android:textSize="32dp"
+            android:textSize="46dp"
+            android:textStyle="bold"
             />
 
     </RelativeLayout>
@@ -54,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
                 android:gravity="center"
-                android:textColor="@color/winGreen"/>
+                android:textColor="@color/winGreen"
+                android:textStyle="italic"/>
 
             <Button
                 android:id="@+id/add_win"
@@ -66,7 +68,22 @@
                 android:textAllCaps="false"
                 android:background="@color/winGreen"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"/>
+
+            <Button
+                android:id="@+id/remove_win"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="removeWinClicked"
+                android:gravity="center"
+                android:text="@string/remove_win"
+                android:textAllCaps="false"
+                android:background="@color/winGreen"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"/>
 
         </LinearLayout>
 
@@ -83,7 +100,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
                 android:gravity="center"
-                android:textColor="@color/lossRed"/>
+                android:textColor="@color/lossRed"
+                android:textStyle="italic"/>
 
             <Button
                 android:id="@+id/add_loss"
@@ -95,7 +113,22 @@
                 android:textAllCaps="false"
                 android:background="@color/lossRed"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:textSize="20dp"/>
+
+            <Button
+                android:id="@+id/remove_loss"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="removeLossClicked"
+                android:gravity="center"
+                android:text="@string/remove_loss"
+                android:textAllCaps="false"
+                android:background="@color/lossRed"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp"/>
 
         </LinearLayout>
 
@@ -110,6 +143,7 @@
         android:layout_marginTop="100dp"
         android:textAllCaps="true"
         android:onClick="deleteSquadClicked"
-        android:background="@color/brightRed"/>
+        android:background="@color/brightRed"
+        android:textSize="20dp"/>
 
 </LinearLayout>

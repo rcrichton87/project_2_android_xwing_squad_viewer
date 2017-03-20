@@ -8,12 +8,12 @@
     <string name="new_details">Enter squad details</string>
     <string name="faction_rebel">Rebel</string>
     <string name="faction_imperial">Imperial</string>
-    <string name="faction_scum"><![CDATA[Scum & Villany]]></string>
+    <string name="faction_scum"><![CDATA[Scum & Villainy]]></string>
     <string name="clear_list">Delete Saved Squads</string>
     <string name="delete_squad">Delete Squad!</string>
     <string name="rebel_only">Only show Rebels</string>
     <string name="imperial_only">Only show Imperials</string>
-    <string name="scum_only"><![CDATA[Only show Scum & Villany]]></string>
+    <string name="scum_only"><![CDATA[Only show Scum & Villainy]]></string>
     <string name="roll_dice">Dice Roller</string>
     <string name="attack_dice">Attack Dice</string>
     <string name="defence_dice">Defence Dice</string>
@@ -24,4 +24,6 @@
     <string name="five">5</string>
     <string name="six">6</string>
     <string name="roll_button">Roll Dice</string>
+    <string name="remove_win">Remove Win!</string>
+    <string name="remove_loss">Remove Loss!</string>
 </resources>

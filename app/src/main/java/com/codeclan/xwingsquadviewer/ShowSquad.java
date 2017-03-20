@@ -89,6 +89,38 @@ public class ShowSquad extends AppCompatActivity {
 
     }
 
+    public void removeWinClicked(View view){
+        //load the saved squads from sharedpreferences
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String squads = sharedPref.getString("squadList", "Nothing Found");
+        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
+        squadList = gson.fromJson(squads, squadArrayList.getType());
+
+        //modify the squad in the squadList
+        Boolean squadFound = squadList.contains(squad); //this returns false
+        Log.d("Squad found .contains", squadFound.toString()); //the squad object from getSerializableExtra a different object to the one in setTag in ListSquadsAdapter and getTag in ListSquadsActivity
+
+        Log.d("Squad list", squadList.toString());
+
+        for (Squad listSquad : squadList){
+            if (listSquad.getId().equals(squad.getId()) ){
+                listSquad.removeWin();
+            }
+        }
+
+        //save the updated list to the SharedPreferences
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("squadList", gson.toJson(squadList));
+        editor.apply();
+
+        //go back to the list
+        Intent intent = new Intent(this, ListSquadsActivity.class);
+        Toast.makeText(ShowSquad.this, "Win removed for " + squad.getName(), Toast.LENGTH_LONG).show();
+        startActivity(intent);
+
+    }
+
     public void addLossClicked(View view){
         //load the saved squads from sharedpreferences
         SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
@@ -117,6 +149,37 @@ public class ShowSquad extends AppCompatActivity {
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
         Toast.makeText(ShowSquad.this, "Loss added for " + squad.getName(), Toast.LENGTH_LONG).show();
+        startActivity(intent);
+    }
+
+    public void removeLossClicked(View view){
+        //load the saved squads from sharedpreferences
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String squads = sharedPref.getString("squadList", "Nothing Found");
+        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
+        squadList = gson.fromJson(squads, squadArrayList.getType());
+
+        //modify a squad in the squadList
+        Boolean squadFound = squadList.contains(squad); //this returns false
+        Log.d("Squad found .contains", squadFound.toString()); //it looks like the json gives a different object
+
+        Log.d("Squad list", squadList.toString());
+
+        for (Squad listSquad : squadList){
+            if (listSquad.getId().equals(squad.getId()) ){
+                listSquad.removeLoss();
+            }
+        }
+
+        //save the updated list to the SharedPreferences
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("squadList", gson.toJson(squadList));
+        editor.apply();
+
+        //go back to the list
+        Intent intent = new Intent(this, ListSquadsActivity.class);
+        Toast.makeText(ShowSquad.this, "Loss removed for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
 

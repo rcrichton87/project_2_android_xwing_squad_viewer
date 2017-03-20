@@ -20,9 +20,10 @@
         android:id="@+id/squad_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32dp"
+        android:textSize="40dp"
         android:layout_toEndOf="@id/faction_symbol"
-        android:layout_toRightOf="@id/faction_symbol"/>
+        android:layout_toRightOf="@id/faction_symbol"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/squad_total_games"
@@ -44,7 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="20dp"
         android:textSize="18dp"
-        android:textStyle="italic"
+        android:textStyle="bold|italic"
         android:textColor="@color/winGreen"/>
 
 
@@ -57,7 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="20dp"
         android:textSize="18dp"
-        android:textStyle="italic"
+        android:textStyle="bold|italic"
         android:textColor="@color/lossRed"/>
 
 
