@@ -58,7 +58,7 @@ public class NewSquadActivity extends AppCompatActivity {
 
 
     }
-    
+
     public void onSaveButtonClicked(View button){
 
 

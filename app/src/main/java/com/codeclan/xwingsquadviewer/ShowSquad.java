@@ -119,4 +119,35 @@ public class ShowSquad extends AppCompatActivity {
         Toast.makeText(ShowSquad.this, "Loss added for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
+
+    public void deleteSquadClicked(View view){
+        //load the saved squads from sharedpreferences
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String squads = sharedPref.getString("squadList", "Nothing Found");
+        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
+        squadList = gson.fromJson(squads, squadArrayList.getType());
+
+        //remove a squad from the squadList
+        int index = 0;
+
+        for (Squad listSquad : squadList){
+            if (listSquad.getId().equals(squad.getId()) ){
+                break;
+            }
+            index++;
+        }
+
+        squadList.remove(index);
+
+        //save the updated list to the SharedPreferences
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("squadList", gson.toJson(squadList));
+        editor.apply();
+
+        //go back to the list
+        Intent intent = new Intent(this, ListSquadsActivity.class);
+        Toast.makeText(ShowSquad.this, squad.getName() + " deleted!", Toast.LENGTH_LONG).show();
+        startActivity(intent);
+    }
 }

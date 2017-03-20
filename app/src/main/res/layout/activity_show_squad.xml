@@ -88,6 +88,15 @@
                 android:text="@string/add_loss"
                 android:textAllCaps="false"/>
 
+            <Button
+                android:id="@+id/delete_squad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="deleteSquadClicked"
+                android:gravity="center"
+                android:text="@string/delete_squad"
+                android:textAllCaps="false"/>
+
         </LinearLayout>
 
     </LinearLayout>

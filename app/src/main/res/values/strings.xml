@@ -10,4 +10,5 @@
     <string name="faction_imperial">Imperial</string>
     <string name="faction_scum"><![CDATA[Scum & Villany]]></string>
     <string name="clear_list">Delete Saved Squads</string>
+    <string name="delete_squad">Delete Squad!</string>
 </resources>
