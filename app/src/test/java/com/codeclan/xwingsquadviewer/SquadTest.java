@@ -109,4 +109,11 @@ public class SquadTest {
         assertEquals(expected, squad1.getLosses());
     }
 
+    @Test
+    public void testCantPutLossesBelowZero(){
+        squad1.removeLoss();
+        Integer expected = 0;
+        assertEquals(expected, squad1.getWins());
+    }
+
 }

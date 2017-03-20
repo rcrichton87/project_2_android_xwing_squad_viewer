@@ -58,6 +58,9 @@ public class Squad implements Comparable<Squad>{
     }
 
     public void removeLoss(){
+        if (losses == 0){
+            return;
+        }
         losses -= 1;
     }
 
