@@ -86,4 +86,12 @@ public class SquadTest {
         assertNotNull(squad1.getId());
     }
 
+    @Test
+    public void testRemoveWin(){
+        squad1.addWin();
+        squad1.removeWin();
+        Integer expected = 0;
+        assertEquals(expected, squad1.getWins());
+    }
+
 }

@@ -46,6 +46,10 @@ public class Squad implements Comparable<Squad>{
         wins++;
     }
 
+    public void removeWin(){
+        wins -= 1;
+    }
+
     public void addLoss(){
         losses++;
     }
