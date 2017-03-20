@@ -47,6 +47,9 @@ public class Squad implements Comparable<Squad>{
     }
 
     public void removeWin(){
+        if (wins == 0){
+            return;
+        }
         wins -= 1;
     }
 
