@@ -30,4 +30,14 @@ public class DiceTest {
         assertEquals("Crit", attackDice.getResultAtIndex(0));
     }
 
+    @Test
+    public void testDefenceDiceGetAtIndex(){
+        assertEquals("Evade", defenceDice.getResultAtIndex(0));
+    }
+
+    @Test
+    public void rollAttackDiceNotNull(){
+        
+    }
+
 }
