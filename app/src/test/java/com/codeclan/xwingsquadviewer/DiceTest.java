@@ -25,4 +25,9 @@ public class DiceTest {
         assertEquals(8, defenceDice.getLength());
     }
 
+    @Test
+    public void testAttackDiceGetAtIndex(){
+        assertEquals("Crit", attackDice.getResultAtIndex(0));
+    }
+
 }
