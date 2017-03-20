@@ -175,6 +175,7 @@ public class ListSquadsActivity extends AppCompatActivity {
         //go to the dice roller
         if(item.getItemId() == R.id.action_roll_dice){
             Intent intent = new Intent(this, RollDiceActivity.class);
+            intent.putExtra("rollResults", "No results");
             startActivity(intent);
             return true;
         }
