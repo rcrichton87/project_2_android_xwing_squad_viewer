@@ -7,5 +7,7 @@
     <item android:id="@+id/action_rebel_only"
         android:title="@string/rebel_only" />
     <item android:id="@+id/action_imperial_only"
-        android:title="@string/imperial_only" />
+    android:title="@string/imperial_only" />
+    <item android:id="@+id/action_scum_only"
+        android:title="@string/scum_only" />
 </menu>

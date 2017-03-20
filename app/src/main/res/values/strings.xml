@@ -13,4 +13,5 @@
     <string name="delete_squad">Delete Squad!</string>
     <string name="rebel_only">Only show Rebels</string>
     <string name="imperial_only">Only show Imperials</string>
+    <string name="scum_only"><![CDATA[Only show Scum & Villany]]></string>
 </resources>
