@@ -3,17 +3,17 @@
     <string name="add_win">Add Win!</string>
     <string name="add_loss">Add Loss!</string>
     <string name="new_squad">New Squad</string>
-    <string name="new_name">Enter a squad name</string>
+    <string name="new_name">Enter a Squad Name</string>
     <string name="save_squad_button">Save Squad</string>
-    <string name="new_details">Enter squad details</string>
+    <string name="new_details">Enter Squad Details</string>
     <string name="faction_rebel">Rebel</string>
     <string name="faction_imperial">Imperial</string>
     <string name="faction_scum"><![CDATA[Scum & Villainy]]></string>
     <string name="clear_list">Delete Saved Squads</string>
     <string name="delete_squad">Delete Squad!</string>
-    <string name="rebel_only">Only show Rebels</string>
-    <string name="imperial_only">Only show Imperials</string>
-    <string name="scum_only"><![CDATA[Only show Scum & Villainy]]></string>
+    <string name="rebel_only">Only Show Rebels</string>
+    <string name="imperial_only">Only Show Imperials</string>
+    <string name="scum_only"><![CDATA[Only Show Scum & Villainy]]></string>
     <string name="roll_dice">Dice Roller</string>
     <string name="attack_dice">Attack Dice</string>
     <string name="defence_dice">Defence Dice</string>
@@ -27,7 +27,7 @@
     <string name="remove_win">Remove Win!</string>
     <string name="remove_loss">Remove Loss!</string>
     <string name="edit_squad">Edit Squad</string>
-    <string name="edit_name">Enter a new name</string>
-    <string name="edit_details">Enter new details</string>
+    <string name="edit_name">Enter a New Name</string>
+    <string name="edit_details">Enter New Details</string>
     <string name="save_changes_button">Save Changes</string>
 </resources>
