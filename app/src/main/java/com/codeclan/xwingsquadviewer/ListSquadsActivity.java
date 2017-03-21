@@ -76,12 +76,7 @@ public class ListSquadsActivity extends AppCompatActivity {
             list.clear();
 
             //save the updated list to the SharedPreferences
-            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-            Gson gson = new Gson();
-            SharedPreferences.Editor editor = sharedPref.edit();
-            Log.d("squadlist json", gson.toJson(list));
-            editor.putString("squadList", gson.toJson(list));
-            editor.apply();
+            SharedPrefsManager.saveSquadList(list, this);
             Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
 
             Intent intent = getIntent();
@@ -100,12 +95,7 @@ public class ListSquadsActivity extends AppCompatActivity {
             }
 
             //save the filtered list to the SharedPreferences
-            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-            Gson gson = new Gson();
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("filteredList", gson.toJson(filteredSquads));
-            Log.d("FilteredList", gson.toJson(list));
-            editor.apply();
+            SharedPrefsManager.saveFilteredList(filteredSquads, this);
 
             Intent intent = new Intent(this, FilteredListActivity.class);
             startActivity(intent);
