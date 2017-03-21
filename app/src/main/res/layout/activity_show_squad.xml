@@ -21,7 +21,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"/>
+                android:layout_marginBottom="3dp"
+                android:paddingLeft="2dp"/>
 
             <TextView
                 android:id="@+id/squad_name"
@@ -57,7 +58,7 @@
                     android:id="@+id/squad_wins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24dp"
+                    android:textSize="30dp"
                     android:gravity="center"
                     android:textColor="@color/winGreen"
                     android:textStyle="italic"/>
@@ -73,7 +74,8 @@
                     android:background="@color/winGreen"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/remove_win"
@@ -87,7 +89,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -102,7 +105,7 @@
                     android:id="@+id/squad_losses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24dp"
+                    android:textSize="30dp"
                     android:gravity="center"
                     android:textColor="@color/lossRed"
                     android:textStyle="italic"/>
@@ -118,7 +121,8 @@
                     android:background="@color/lossRed"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/remove_loss"
@@ -132,7 +136,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -147,7 +152,12 @@
             android:layout_marginTop="40dp"
             android:textAllCaps="true"
             android:onClick="editSquadClicked"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"/>
 
         <Button
             android:id="@+id/delete_squad"
@@ -159,7 +169,10 @@
             android:textAllCaps="true"
             android:onClick="deleteSquadClicked"
             android:background="@color/brightRed"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"/>
 
     </LinearLayout>
 </ScrollView>

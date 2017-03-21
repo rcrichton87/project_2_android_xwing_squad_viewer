@@ -114,6 +114,9 @@
         android:onClick="rollButtonClicked"
         android:text="@string/roll_button"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"/>
+        android:layout_marginRight="50dp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        android:textStyle="bold"/>
 
 </LinearLayout>

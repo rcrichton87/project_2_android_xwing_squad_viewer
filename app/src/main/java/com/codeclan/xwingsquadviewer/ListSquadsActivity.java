@@ -68,7 +68,7 @@ public class ListSquadsActivity extends AppCompatActivity {
 
             FragmentManager fm = getFragmentManager();
             DeleteWarning deleteWarning = new DeleteWarning();
-            deleteWarning.show(fm, "Sample Fragment");
+            deleteWarning.show(fm, "confirm delete");
             return true;
         }
 

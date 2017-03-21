@@ -59,7 +59,7 @@ public class EditSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        Toast.makeText(EditSquad.this, squad.getName() + " edited", Toast.LENGTH_LONG).show();
+        Toast.makeText(EditSquad.this, squad.getName() + " Edited", Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
 }
