@@ -45,4 +45,10 @@ public class DiceTest {
         assertNotNull(defenceDice.roll());
     }
 
+    @Test
+    public void canGetDiceType(){
+        assertEquals(DiceType.ATTACK, attackDice.getType());
+    }
+
+
 }

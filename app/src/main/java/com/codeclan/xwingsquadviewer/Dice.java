@@ -6,13 +6,10 @@ import java.util.Random;
 
 import static com.codeclan.xwingsquadviewer.DiceType.*;
 
-/**
- * Created by user on 20/03/2017.
- */
-
 public class Dice {
 
     ArrayList<String> results;
+    DiceType diceType;
 
     public Dice(DiceType type){
         if (type == ATTACK){
@@ -21,6 +18,11 @@ public class Dice {
         if (type == DEFENCE){
             this.results = new ArrayList<String>(Arrays.asList("Evade", "Evade", "Evade", "Focus", "Focus", "Blank", "Blank", "Blank"));
         }
+        this.diceType = type;
+    }
+
+    public DiceType getType(){
+        return diceType;
     }
 
     public int getLength(){
