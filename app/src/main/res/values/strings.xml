@@ -30,4 +30,7 @@
     <string name="edit_name">Enter a New Name</string>
     <string name="edit_details">Enter New Details</string>
     <string name="save_changes_button">Save Changes</string>
+    <string name="dialog_confirm_delete">Confirm Deletion</string>
+    <string name="delete_yes">Delete</string>
+    <string name="delete_no">Cancel</string>
 </resources>

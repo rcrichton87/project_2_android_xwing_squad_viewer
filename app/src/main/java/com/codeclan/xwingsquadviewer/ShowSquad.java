@@ -1,9 +1,11 @@
 package com.codeclan.xwingsquadviewer;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,9 @@ public class ShowSquad extends AppCompatActivity {
 
         TextView squadDetails = (TextView) findViewById(R.id.squad_details);
         squadDetails.setText(squad.getDetails());
+
+        Button confirmDelete = (Button) findViewById(R.id.delete_yes);
+        Button cancelDelete = (Button) findViewById(R.id.delete_no);
 
     }
 
@@ -129,7 +134,14 @@ public class ShowSquad extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void deleteSquadClicked(View view){
+    public void deleteSquadClicked(View view) {
+        FragmentManager fm = getFragmentManager();
+        DeleteWarning deleteWarning = new DeleteWarning();
+        deleteWarning.show(fm, "Sample Fragment");
+
+    }
+
+    public void deleteConfirm(View view){
         //load the saved squads from sharedpreferences
         squadList = SharedPrefsManager.loadSquadList(this);
 
@@ -153,4 +165,5 @@ public class ShowSquad extends AppCompatActivity {
         Toast.makeText(ShowSquad.this, squad.getName() + " deleted!", Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
+
 }
