@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class EditSquad extends AppCompatActivity {
-    
+
     EditText squadName;
     EditText squadDetails;
     Button saveChanges;
