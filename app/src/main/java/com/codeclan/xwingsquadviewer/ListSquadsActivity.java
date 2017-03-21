@@ -30,12 +30,7 @@ public class ListSquadsActivity extends AppCompatActivity {
         setContentView(R.layout.squads_list);
 
         //loading squads from SharedPreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        Log.d("squads json", squads);
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        list = gson.fromJson(squads, squadArrayList.getType());
+        list = SharedPrefsManager.loadSquadList(this);
 
         //sort the list based on the win/loss ratio
         Collections.sort(list);
@@ -49,17 +44,10 @@ public class ListSquadsActivity extends AppCompatActivity {
         Squad squad = (Squad) squad_item.getTag();
 
         // save the squad as json
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("individualSquad", gson.toJson(squad));
-        editor.apply();
+        SharedPrefsManager.saveIndividualSquad(squad, this);
 
-        Log.d("squad in json", squad.toString());
-        Log.d("squad as json", gson.toJson(squad));
-
+        //go to the showsquad activity
         Intent intent = new Intent(this, ShowSquad.class);
-
         startActivity(intent);
     }
 

@@ -40,6 +40,14 @@ public class SharedPrefsManager {
         return squadList;
     }
 
+    public static void saveIndividualSquad(Squad squad, Context context){
+        SharedPreferences sharedPref = context.getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("individualSquad", gson.toJson(squad));
+        editor.apply();
+    }
+
     public static void saveSquadList(ArrayList<Squad> squadList, Context context){
         SharedPreferences sharedPref = context.getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
         Gson gson = new Gson();
