@@ -1,5 +1,6 @@
 package com.codeclan.xwingsquadviewer;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,15 +66,9 @@ public class ListSquadsActivity extends AppCompatActivity {
         //clear the list menu item
         if(item.getItemId() == R.id.clear_list){
 
-            //clear the list
-            list.clear();
-
-            //save the updated list to the SharedPreferences
-            SharedPrefsManager.saveSquadList(list, this);
-            Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
-
-            Intent intent = getIntent();
-            startActivity(intent);
+            FragmentManager fm = getFragmentManager();
+            DeleteWarning deleteWarning = new DeleteWarning();
+            deleteWarning.show(fm, "Sample Fragment");
             return true;
         }
 
@@ -143,6 +138,17 @@ public class ListSquadsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void deleteConfirm(View view) {
+        //clear the list
+        list.clear();
+
+        //save the updated list to the SharedPreferences
+        SharedPrefsManager.saveSquadList(list, this);
+        Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
+
+        Intent intent = getIntent();
+        startActivity(intent);
     }
 
 }

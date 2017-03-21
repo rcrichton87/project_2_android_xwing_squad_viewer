@@ -12,7 +12,7 @@ public class DeleteWarning extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.confirm_delete_dialog, container, false);
-        getDialog().setTitle("Simple Dialog");
+        getDialog().setTitle("Confirm Deletion");
 
         Button dismiss = (Button) rootView.findViewById(R.id.delete_no);
         dismiss.setOnClickListener(new View.OnClickListener() {
