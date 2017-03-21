@@ -183,6 +183,19 @@ public class ShowSquad extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void editSquadClicked(View view){
+        // save the squad as json
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("individualSquad", gson.toJson(squad));
+        editor.apply();
+
+        Intent intent = new Intent(this, EditSquad.class);
+
+        startActivity(intent);
+    }
+
     public void deleteSquadClicked(View view){
         //load the saved squads from sharedpreferences
         SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);

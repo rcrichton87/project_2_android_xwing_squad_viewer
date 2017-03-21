@@ -19,7 +19,8 @@
         <activity android:name=".ShowSquad" />
         <activity android:name=".NewSquadActivity" />
         <activity android:name=".FilteredListActivity" />
-        <activity android:name=".RollDiceActivity"></activity>
+        <activity android:name=".RollDiceActivity" />
+        <activity android:name=".EditSquad"></activity>
     </application>
 
 </manifest>

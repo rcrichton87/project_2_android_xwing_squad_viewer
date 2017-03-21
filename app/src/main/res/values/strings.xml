@@ -26,4 +26,8 @@
     <string name="roll_button">Roll Dice</string>
     <string name="remove_win">Remove Win!</string>
     <string name="remove_loss">Remove Loss!</string>
+    <string name="edit_squad">Edit Squad</string>
+    <string name="edit_name">Enter a new name</string>
+    <string name="edit_details">Enter new details</string>
+    <string name="save_changes_button">Save Changes</string>
 </resources>

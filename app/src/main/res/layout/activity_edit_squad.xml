@@ -1,0 +1,43 @@
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/background">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edit_squad_name"
+            android:textSize="24dp"
+            android:hint="@string/edit_name"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_squad_details"
+            android:textSize="24dp"
+            android:hint="@string/edit_details"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/save_changes"
+            android:text="@string/save_changes_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:onClick="saveChangesClicked"/>
+
+    </LinearLayout>
+
+</ScrollView>
