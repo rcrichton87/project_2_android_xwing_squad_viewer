@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
+
 public class SharedPrefsManager {
 
     public static final String SQUADS = "squads";
@@ -18,6 +20,15 @@ public class SharedPrefsManager {
         TypeToken<Squad> squadTypeToken = new TypeToken<Squad>(){};
         Squad squad = gson.fromJson(squadString, squadTypeToken.getType());
         return squad;
+    }
+
+    public static ArrayList<Squad> loadSquadList(Context context){
+        SharedPreferences sharedPref = context.getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String squads = sharedPref.getString("squadList", "Nothing Found");
+        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
+        ArrayList<Squad> squadList = gson.fromJson(squads, squadArrayList.getType());
+        return squadList;
     }
 
 }

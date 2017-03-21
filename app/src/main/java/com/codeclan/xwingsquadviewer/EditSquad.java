@@ -38,12 +38,6 @@ public class EditSquad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_squad);
 
-        //load the squad from json
-        //SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        //Gson gson = new Gson();
-        //String squadString = sharedPref.getString("individualSquad", "Nothing Found");
-        //Log.d("Squad string", squadString);
-        //TypeToken<Squad> squadTypeToken = new TypeToken<Squad>(){};
         squad = SharedPrefsManager.loadIndividualSquad(this);
 
         squadName = (EditText) findViewById(R.id.edit_squad_name);
@@ -62,11 +56,8 @@ public class EditSquad extends AppCompatActivity {
 
 
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        squadList = gson.fromJson(squads, squadArrayList.getType());
+
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //modify the squad in the squadList
 
@@ -80,6 +71,8 @@ public class EditSquad extends AppCompatActivity {
         }
 
         //save the updated list to the SharedPreferences
+        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("squadList", gson.toJson(squadList));
         editor.apply();
