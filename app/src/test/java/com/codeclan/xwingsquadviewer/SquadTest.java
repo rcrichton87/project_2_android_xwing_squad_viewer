@@ -122,4 +122,10 @@ public class SquadTest {
         assertEquals("Red Squadron", squad1.getName());
     }
 
+    @Test
+    public void testCanChangeSquadDetails(){
+        squad1.setDetails("Red Squadron Pilot");
+        assertEquals("Red Squadron Pilot", squad1.getDetails());
+    }
+
 }

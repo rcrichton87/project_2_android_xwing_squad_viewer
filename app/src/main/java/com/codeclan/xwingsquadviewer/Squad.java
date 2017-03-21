@@ -34,6 +34,10 @@ public class Squad implements Comparable<Squad>{
         return details;
     }
 
+    public void setDetails(String newDetails){
+        this.details = newDetails;
+    }
+
     public Integer getWins() {
         return wins;
     }
