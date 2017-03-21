@@ -54,9 +54,12 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
             squadWinLossRatio.setText("+" + currentSquad.getWinLossRatio().toString()); // put a + in front of the number
             squadWinLossRatio.setTextColor(Color.parseColor("#13df00")); //set to green if positive
         }
+        if ((currentSquad.getWinLossRatio() == 0 )){
+            squadWinLossRatio.setTextColor(Color.parseColor("#000000")); //set to black if 0
+        }
 
         return listItemView;
-        
+
     }
 
 }

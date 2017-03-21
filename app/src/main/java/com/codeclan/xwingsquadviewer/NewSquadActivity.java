@@ -1,27 +1,17 @@
 package com.codeclan.xwingsquadviewer;
 
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 
 public class NewSquadActivity extends AppCompatActivity {
-
-    public static final String SQUADS = "squads";
 
     EditText squadName;
     EditText squadDetails;
@@ -65,47 +55,29 @@ public class NewSquadActivity extends AppCompatActivity {
         //create a new squad
         name = squadName.getText().toString();
         details = squadDetails.getText().toString();
+
+        //get the faction from the radiobutttons
         int factionButton = squadFaction.getCheckedRadioButtonId();
-
-        Log.d("Faction button", factionButton + "");
-
         if (factionButton == factionRebel.getId() ) {
             faction = Faction.REBEL;
-            Log.d("Faction after rebel", faction.toString());
         }
         if (factionButton == factionImperial.getId() ) {
             faction = Faction.IMPERIAL;
-            Log.d("Faction after imperial", faction.toString());
         }
         if (factionButton == factionScum.getId()){
             faction = Faction.SCUM;
-            Log.d("Faction after scum", faction.toString());
         }
-
-        Log.d("Squad details", name + " - " + details + " - " + faction.toString() );
 
         squad = new Squad(name, details, faction);
 
-
-        Log.d("Squad", squad.toString());
-        Log.d("Squad name", squad.getName());
-
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        ArrayList<Squad> squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //add the newly created squad to the saved squads
         squadList.add(squad);
-        Log.d("Squad List", squadList.toString());
 
         //save the updated list to the SharedPreferences
-        SharedPreferences.Editor editor = sharedPref.edit();
-        Log.d("squadlist json", gson.toJson(squadList));
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        SharedPrefsManager.saveSquadList(squadList, this);
         Toast.makeText(NewSquadActivity.this, "Squad Saved", Toast.LENGTH_LONG).show();
 
         //go back to the list
@@ -113,7 +85,5 @@ public class NewSquadActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
-
 
 }
