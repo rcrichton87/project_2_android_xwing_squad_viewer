@@ -1,28 +1,18 @@
 package com.codeclan.xwingsquadviewer;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
 public class EditSquad extends AppCompatActivity {
-
-    public static final String SQUADS = "squads";
-
+    
     EditText squadName;
     EditText squadDetails;
     Button saveChanges;
@@ -53,16 +43,10 @@ public class EditSquad extends AppCompatActivity {
         newName = squadName.getText().toString();
         newDetails = squadDetails.getText().toString();
 
-
-
-        //load the saved squads from sharedpreferences
-
+        //load the squadlist
         squadList = SharedPrefsManager.loadSquadList(this);
 
         //modify the squad in the squadList
-
-        Log.d("Squad list", squadList.toString());
-
         for (Squad listSquad : squadList){
             if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.setName(newName);
@@ -70,12 +54,8 @@ public class EditSquad extends AppCompatActivity {
             }
         }
 
-        //save the updated list to the SharedPreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        //save the updated squadlist
+        SharedPrefsManager.saveSquadList(squadList, this);
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);

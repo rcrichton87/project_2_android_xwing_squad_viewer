@@ -31,4 +31,12 @@ public class SharedPrefsManager {
         return squadList;
     }
 
+    public static void saveSquadList(ArrayList<Squad> squadList, Context context){
+        SharedPreferences sharedPref = context.getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("squadList", gson.toJson(squadList));
+        editor.apply();
+    }
+
 }
