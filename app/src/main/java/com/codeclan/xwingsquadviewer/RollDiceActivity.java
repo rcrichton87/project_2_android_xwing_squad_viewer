@@ -5,9 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import static android.support.constraint.ConstraintSet.WRAP_CONTENT;
 
 public class RollDiceActivity extends AppCompatActivity {
 
@@ -29,6 +33,10 @@ public class RollDiceActivity extends AppCompatActivity {
     RadioButton fourDice;
     RadioButton fiveDice;
     RadioButton sixDice;
+
+    String diceTypeString;
+
+    LinearLayout rollResultsImages;
 
     TextView rollResults;
 
@@ -80,9 +88,11 @@ public class RollDiceActivity extends AppCompatActivity {
         int diceTypeButton = diceType.getCheckedRadioButtonId();
         if (diceTypeButton == attackDiceButton.getId() ){
             rolledDice = new Dice(DiceType.ATTACK);
+            diceTypeString = "attack";
         }
         if (diceTypeButton == defenceDiceButton.getId() ){
             rolledDice = new Dice(DiceType.DEFENCE);
+            diceTypeString = "defence";
         }
 
         int diceNumberButton = numberOfDice.getCheckedRadioButtonId();
@@ -108,12 +118,51 @@ public class RollDiceActivity extends AppCompatActivity {
         int numberOfDiceRolled = 0;
         rollResultString = "";
 
+        rollResultsImages = (LinearLayout)findViewById(R.id.roll_results_images);
+        rollResultsImages.removeAllViews();
+
         while (numberOfDiceRolled < numberOfDiceToRoll){
-            rollResultString += rolledDice.roll();
+            String diceRoll = rolledDice.roll();
+            rollResultString += diceRoll;
+
             numberOfDiceRolled ++;
             if (numberOfDiceRolled < numberOfDiceToRoll){
                 rollResultString += ", ";
             }
+
+            ImageView diceImage = new ImageView(this);
+            diceImage.setLayoutParams(new android.view.ViewGroup.LayoutParams(WRAP_CONTENT,WRAP_CONTENT));
+
+            if (diceTypeString.equals("attack")){
+                if (diceRoll.equals("Crit")){
+                    diceImage.setImageResource(R.drawable.attack_crit);
+                }
+                if (diceRoll.equals("Hit")){
+                    diceImage.setImageResource(R.drawable.attack_hit);
+                }
+                if (diceRoll.equals("Focus")){
+                    diceImage.setImageResource(R.drawable.attack_focus);
+                }
+                if (diceRoll.equals("Blank")){
+                    diceImage.setImageResource(R.drawable.attack_blank);
+                }
+            }
+
+            if (diceTypeString.equals("defence")){
+                if (diceRoll.equals("Evade")){
+                    diceImage.setImageResource(R.drawable.defence_evade);
+                }
+                if (diceRoll.equals("Focus")){
+                    diceImage.setImageResource(R.drawable.defence_focus);
+                }
+                if (diceRoll.equals("Blank")){
+                    diceImage.setImageResource(R.drawable.defence_blank);
+                }
+            }
+
+            rollResultsImages.addView(diceImage);
+
+
         }
 
         rollResults.setText(rollResultString);

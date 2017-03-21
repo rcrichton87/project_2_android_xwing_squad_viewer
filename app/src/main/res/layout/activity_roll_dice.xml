@@ -90,6 +90,15 @@
             android:textSize="24dp"/>
     </RadioGroup>
 
+    <LinearLayout
+        android:id="@+id/roll_results_images"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/roll_results"
         android:layout_width="match_parent"
