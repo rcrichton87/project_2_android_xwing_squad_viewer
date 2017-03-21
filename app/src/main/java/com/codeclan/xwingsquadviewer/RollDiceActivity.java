@@ -1,6 +1,7 @@
 package com.codeclan.xwingsquadviewer;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -84,6 +85,9 @@ public class RollDiceActivity extends AppCompatActivity {
     }
 
     public void rollButtonClicked(View button){
+
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.dice);
+        mp.start();
 
         int diceTypeButton = diceType.getCheckedRadioButtonId();
         if (diceTypeButton == attackDiceButton.getId() ){
