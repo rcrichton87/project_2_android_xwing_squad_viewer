@@ -86,8 +86,8 @@ public class RollDiceActivity extends AppCompatActivity {
 
     public void rollButtonClicked(View button){
 
-        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.dice);
-        mp.start();
+        MediaPlayer diceSound = MediaPlayer.create(getApplicationContext(), R.raw.dice);
+        diceSound.start();
 
         int diceTypeButton = diceType.getCheckedRadioButtonId();
         if (diceTypeButton == attackDiceButton.getId() ){
