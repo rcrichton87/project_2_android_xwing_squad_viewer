@@ -26,6 +26,10 @@ public class Squad implements Comparable<Squad>{
         return name;
     }
 
+    public void setName(String newName){
+        this.name = newName;
+    }
+
     public String getDetails() {
         return details;
     }

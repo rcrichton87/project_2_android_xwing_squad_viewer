@@ -116,4 +116,10 @@ public class SquadTest {
         assertEquals(expected, squad1.getWins());
     }
 
+    @Test
+    public void testCanChangeSquadName(){
+        squad1.setName("Red Squadron");
+        assertEquals("Red Squadron", squad1.getName());
+    }
+
 }
