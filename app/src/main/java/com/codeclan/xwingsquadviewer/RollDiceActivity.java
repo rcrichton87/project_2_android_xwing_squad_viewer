@@ -162,11 +162,10 @@ public class RollDiceActivity extends AppCompatActivity {
 
             rollResultsImages.addView(diceImage);
 
-
         }
 
         rollResults.setText(rollResultString);
 
-
     }
+
 }

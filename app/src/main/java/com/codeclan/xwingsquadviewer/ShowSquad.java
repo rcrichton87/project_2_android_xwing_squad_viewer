@@ -1,26 +1,17 @@
 package com.codeclan.xwingsquadviewer;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 
 public class ShowSquad extends AppCompatActivity {
 
     Squad squad;
-    public static final String SQUADS = "squads";
     ArrayList<Squad> squadList;
 
     @Override
@@ -29,16 +20,7 @@ public class ShowSquad extends AppCompatActivity {
         setContentView(R.layout.activity_show_squad);
 
         //load the squad from json
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squadString = sharedPref.getString("individualSquad", "Nothing Found");
-        TypeToken<Squad> squadTypeToken = new TypeToken<Squad>(){};
-        squad = gson.fromJson(squadString, squadTypeToken.getType());
-
-        Log.d("json", squadString);
-        Log.d("Squad from json", squad.toString());
-        Log.d("Squad id", squad.getId().toString());
-
+        squad = SharedPrefsManager.loadIndividualSquad(this);
 
         ImageView factionSymbol = (ImageView) findViewById(R.id.faction_symbol);
         factionSymbol.setImageResource(squad.getFactionSymbol());
@@ -59,18 +41,9 @@ public class ShowSquad extends AppCompatActivity {
 
     public void addWinClicked(View view){
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //modify the squad in the squadList
-        Boolean squadFound = squadList.contains(squad); //this returns false
-        Log.d("Squad found .contains", squadFound.toString()); //the squad object from getSerializableExtra a different object to the one in setTag in ListSquadsAdapter and getTag in ListSquadsActivity
-
-        Log.d("Squad list", squadList.toString());
-
         for (Squad listSquad : squadList){
             if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.addWin();
@@ -78,9 +51,7 @@ public class ShowSquad extends AppCompatActivity {
         }
 
         //save the updated list to the SharedPreferences
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        SharedPrefsManager.saveSquadList(squadList, this);
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
@@ -91,18 +62,9 @@ public class ShowSquad extends AppCompatActivity {
 
     public void removeWinClicked(View view){
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //modify the squad in the squadList
-        Boolean squadFound = squadList.contains(squad); //this returns false
-        Log.d("Squad found .contains", squadFound.toString()); //the squad object from getSerializableExtra a different object to the one in setTag in ListSquadsAdapter and getTag in ListSquadsActivity
-
-        Log.d("Squad list", squadList.toString());
-
         for (Squad listSquad : squadList){
             if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.removeWin();
@@ -110,9 +72,7 @@ public class ShowSquad extends AppCompatActivity {
         }
 
         //save the updated list to the SharedPreferences
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        SharedPrefsManager.saveSquadList(squadList, this);
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
@@ -123,18 +83,9 @@ public class ShowSquad extends AppCompatActivity {
 
     public void addLossClicked(View view){
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //modify a squad in the squadList
-        Boolean squadFound = squadList.contains(squad); //this returns false
-        Log.d("Squad found .contains", squadFound.toString()); //it looks like the json gives a different object
-
-        Log.d("Squad list", squadList.toString());
-
         for (Squad listSquad : squadList){
             if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.addLoss();
@@ -142,9 +93,7 @@ public class ShowSquad extends AppCompatActivity {
         }
 
         //save the updated list to the SharedPreferences
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        SharedPrefsManager.saveSquadList(squadList, this);
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
@@ -154,18 +103,9 @@ public class ShowSquad extends AppCompatActivity {
 
     public void removeLossClicked(View view){
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //modify a squad in the squadList
-        Boolean squadFound = squadList.contains(squad); //this returns false
-        Log.d("Squad found .contains", squadFound.toString()); //it looks like the json gives a different object
-
-        Log.d("Squad list", squadList.toString());
-
         for (Squad listSquad : squadList){
             if (listSquad.getId().equals(squad.getId()) ){
                 listSquad.removeLoss();
@@ -173,9 +113,7 @@ public class ShowSquad extends AppCompatActivity {
         }
 
         //save the updated list to the SharedPreferences
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        SharedPrefsManager.saveSquadList(squadList, this);
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
@@ -185,24 +123,15 @@ public class ShowSquad extends AppCompatActivity {
 
     public void editSquadClicked(View view){
         // save the squad as json
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("individualSquad", gson.toJson(squad));
-        editor.apply();
+        SharedPrefsManager.saveIndividualSquad(squad, this);
 
         Intent intent = new Intent(this, EditSquad.class);
-
         startActivity(intent);
     }
 
     public void deleteSquadClicked(View view){
         //load the saved squads from sharedpreferences
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
-        TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
-        squadList = gson.fromJson(squads, squadArrayList.getType());
+        squadList = SharedPrefsManager.loadSquadList(this);
 
         //remove a squad from the squadList
         int index = 0;
@@ -217,9 +146,7 @@ public class ShowSquad extends AppCompatActivity {
         squadList.remove(index);
 
         //save the updated list to the SharedPreferences
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("squadList", gson.toJson(squadList));
-        editor.apply();
+        SharedPrefsManager.saveSquadList(squadList, this);
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
