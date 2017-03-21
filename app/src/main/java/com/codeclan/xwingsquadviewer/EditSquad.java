@@ -39,15 +39,12 @@ public class EditSquad extends AppCompatActivity {
         setContentView(R.layout.activity_edit_squad);
 
         //load the squad from json
-        SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String squadString = sharedPref.getString("individualSquad", "Nothing Found");
-        Log.d("Squad string", squadString);
-        TypeToken<Squad> squadTypeToken = new TypeToken<Squad>(){};
-        squad = gson.fromJson(squadString, squadTypeToken.getType());
-
-        Log.d("Squad", squad.toString());
-        Log.d("Squad name", squad.getName());
+        //SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
+        //Gson gson = new Gson();
+        //String squadString = sharedPref.getString("individualSquad", "Nothing Found");
+        //Log.d("Squad string", squadString);
+        //TypeToken<Squad> squadTypeToken = new TypeToken<Squad>(){};
+        squad = SharedPrefsManager.loadIndividualSquad(this);
 
         squadName = (EditText) findViewById(R.id.edit_squad_name);
         squadName.setText(squad.getName(), TextView.BufferType.EDITABLE);
@@ -61,6 +58,8 @@ public class EditSquad extends AppCompatActivity {
     public void saveChangesClicked(View view){
         newName = squadName.getText().toString();
         newDetails = squadDetails.getText().toString();
+
+
 
         //load the saved squads from sharedpreferences
         SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
