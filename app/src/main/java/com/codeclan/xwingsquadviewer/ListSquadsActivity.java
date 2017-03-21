@@ -1,27 +1,19 @@
 package com.codeclan.xwingsquadviewer;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class ListSquadsActivity extends AppCompatActivity {
 
-    public static final String SQUADS = "squads";
     ArrayList<Squad> list;
 
     @Override
@@ -51,6 +43,7 @@ public class ListSquadsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //menu creation
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater menuInflater = getMenuInflater();
@@ -59,7 +52,7 @@ public class ListSquadsActivity extends AppCompatActivity {
     }
 
 
-    //the dropdown menu
+    //selecting menu items
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         //new squad menu item
@@ -86,6 +79,7 @@ public class ListSquadsActivity extends AppCompatActivity {
 
         //filter by rebel
         if(item.getItemId() == R.id.action_rebel_only){
+
             //make a list of filtered squads
             ArrayList<Squad> filteredSquads = new ArrayList<>();
             for (Squad squad : list ) {
@@ -114,12 +108,7 @@ public class ListSquadsActivity extends AppCompatActivity {
             }
 
             //save the filtered list to the SharedPreferences
-            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-            Gson gson = new Gson();
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("filteredList", gson.toJson(filteredSquads));
-            Log.d("FilteredList", gson.toJson(list));
-            editor.apply();
+            SharedPrefsManager.saveFilteredList(filteredSquads, this);
 
             Intent intent = new Intent(this, FilteredListActivity.class);
             startActivity(intent);
@@ -138,12 +127,7 @@ public class ListSquadsActivity extends AppCompatActivity {
             }
 
             //save the filtered list to the SharedPreferences
-            SharedPreferences sharedPref = getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
-            Gson gson = new Gson();
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("filteredList", gson.toJson(filteredSquads));
-            Log.d("FilteredList", gson.toJson(list));
-            editor.apply();
+            SharedPrefsManager.saveFilteredList(filteredSquads, this);
 
             Intent intent = new Intent(this, FilteredListActivity.class);
             startActivity(intent);
