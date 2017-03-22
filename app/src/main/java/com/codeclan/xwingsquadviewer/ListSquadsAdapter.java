@@ -57,7 +57,7 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
             squadWinLossRatio.setTextColor(ContextCompat.getColor(this.getContext(), R.color.winGreen)); //set to green if positive
         }
         if ((currentSquad.getWinLossRatio() == 0)) {
-            squadWinLossRatio.setTextColor(ContextCompat.getColor(this.getContext(), R.color.black)); //set to black if 0
+            squadWinLossRatio.setTextColor(ContextCompat.getColor(this.getContext(), R.color.grey)); //set to black if 0
         }
 
         return listItemView;

@@ -8,5 +8,6 @@
     <color name="lossRed">#df0000</color>
     <color name="brightRed">#ff0000</color>
     <color name="black">#333333</color>
+    <color name="grey">#6e6e6e</color>
     <color name="white">#ffffff</color>
 </resources>
