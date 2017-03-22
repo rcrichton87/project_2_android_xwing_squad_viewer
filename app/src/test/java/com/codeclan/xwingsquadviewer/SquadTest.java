@@ -9,10 +9,12 @@ import static org.junit.Assert.*;
 public class SquadTest {
 
     Squad squad1;
+    Squad squad2;
 
     @Before
     public void before(){
         squad1 = new Squad("Rogue Squadron", "Wedge Antilles, Luke Skywalker", REBEL, 0);
+        squad2 = new Squad("Imperial Acea", "Soontir Fel, Carnor Jax, Turr Phenir", IMPERIAL, 1);
     }
 
     @Test
@@ -129,9 +131,15 @@ public class SquadTest {
     }
 
     @Test
-    public  void testCanGetId(){
+    public void testCanGetId(){
         Integer expected = 1;
         assertEquals(expected, squad1.getId());
+    }
+
+    @Test
+    public void testIdIncrements(){
+        Integer expected = 2;
+        assertEquals(expected, squad2.getId());
     }
 
 }
