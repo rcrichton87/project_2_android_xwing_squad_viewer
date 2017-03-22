@@ -72,7 +72,7 @@ public class NewSquadActivity extends AppCompatActivity {
         //load the saved squads from sharedpreferences
         squadList = SharedPrefsManager.loadSquadList(this);
 
-        //get the highest ID used by  squad in the squadlist
+        //get the highest ID used by a squad in the squadlist
         if (squadList.size() == 0){ //if sharedprefs are empty
             previousId = 0; //start from 0
         }

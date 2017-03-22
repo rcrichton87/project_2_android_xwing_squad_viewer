@@ -139,6 +139,7 @@ public class ListSquadsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public void deleteConfirm(View view) {
         //clear the list
         list.clear();
@@ -146,7 +147,6 @@ public class ListSquadsActivity extends AppCompatActivity {
         //save the updated list to the SharedPreferences
         SharedPrefsManager.saveSquadList(list, this);
         Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
-
 
         Intent intent = new Intent(this, ListSquadsActivity.class);
         startActivity(intent);

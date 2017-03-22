@@ -16,12 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListSquadsAdapter" />
         <activity android:name=".ShowSquadActivity" />
         <activity android:name=".NewSquadActivity" />
         <activity android:name=".FilteredListActivity" />
         <activity android:name=".RollDiceActivity" />
-        <activity android:name=".EditSquad"></activity>
+        <activity android:name=".EditSquadActivity"/>
     </application>
 
 </manifest>

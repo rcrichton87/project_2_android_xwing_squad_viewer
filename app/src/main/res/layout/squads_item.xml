@@ -67,7 +67,6 @@
         android:id="@+id/squad_wins_losses"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
