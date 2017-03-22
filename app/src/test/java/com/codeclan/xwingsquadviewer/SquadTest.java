@@ -12,7 +12,7 @@ public class SquadTest {
 
     @Before
     public void before(){
-        squad1 = new Squad("Rogue Squadron", "Wedge Antilles, Luke Skywalker", REBEL);
+        squad1 = new Squad("Rogue Squadron", "Wedge Antilles, Luke Skywalker", REBEL, 0);
     }
 
     @Test
@@ -126,6 +126,12 @@ public class SquadTest {
     public void testCanChangeSquadDetails(){
         squad1.setDetails("Red Squadron Pilot");
         assertEquals("Red Squadron Pilot", squad1.getDetails());
+    }
+
+    @Test
+    public  void testCanGetId(){
+        Integer expected = 1;
+        assertEquals(expected, squad1.getId());
     }
 
 }

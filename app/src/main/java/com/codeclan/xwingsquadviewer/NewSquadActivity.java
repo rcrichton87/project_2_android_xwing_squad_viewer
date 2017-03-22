@@ -24,6 +24,7 @@ public class NewSquadActivity extends AppCompatActivity {
     String name;
     String details;
     Faction faction;
+    Integer previousId;
 
     Squad squad;
     ArrayList<Squad> squadList = new ArrayList<>();
@@ -68,10 +69,23 @@ public class NewSquadActivity extends AppCompatActivity {
             faction = Faction.SCUM;
         }
 
-        squad = new Squad(name, details, faction);
-
         //load the saved squads from sharedpreferences
         squadList = SharedPrefsManager.loadSquadList(this);
+
+        //get the highest ID used by  squad in the squadlist
+        if (squadList.size() == 0){ //if sharedprefs are empty
+            previousId = 0; //start from 0
+        }
+        else {
+            previousId = 0;
+            for (Squad squad : squadList) {
+                if (squad.getId() > previousId){
+                    previousId = squad.getId();
+                }
+            }
+        }
+
+        squad = new Squad(name, details, faction, previousId);
 
         //add the newly created squad to the saved squads
         squadList.add(squad);

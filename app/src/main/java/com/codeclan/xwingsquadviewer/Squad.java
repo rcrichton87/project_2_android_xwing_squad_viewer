@@ -1,6 +1,7 @@
 package com.codeclan.xwingsquadviewer;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Squad implements Comparable<Squad>{
@@ -10,15 +11,15 @@ public class Squad implements Comparable<Squad>{
     Integer wins;
     Integer losses;
     Faction faction;
-    static AtomicInteger nextId = new AtomicInteger();
     Integer id;
 
-    public Squad(String name, String details, Faction faction){
+    public Squad(String name, String details, Faction faction, Integer previousId){
         this.name = name;
         this.details = details;
         this.wins = 0;
         this.losses = 0;
         this.faction = faction;
+        AtomicInteger nextId = new AtomicInteger(previousId);
         this.id = nextId.incrementAndGet();
     }
 

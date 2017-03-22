@@ -14,11 +14,11 @@ public class DeleteWarning extends DialogFragment {
         View rootView = inflater.inflate(R.layout.confirm_delete_dialog, container, false);
         getDialog().setTitle("Confirm Deletion");
 
+        //setting up the cancel button to dismiss the popup
         Button dismiss = (Button) rootView.findViewById(R.id.delete_no);
         dismiss.setOnClickListener(new View.OnClickListener() {
-
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 dismiss();
             }
         });

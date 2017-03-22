@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -35,6 +36,8 @@ public class ListSquadsActivity extends AppCompatActivity {
 
     public void squadClicked(View squad_item){
         Squad squad = (Squad) squad_item.getTag();
+
+        Log.d("Squad ID", squad.getId().toString());
 
         // save the squad as json
         SharedPrefsManager.saveIndividualSquad(squad, this);

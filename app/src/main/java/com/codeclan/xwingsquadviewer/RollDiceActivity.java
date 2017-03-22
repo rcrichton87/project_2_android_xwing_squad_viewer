@@ -1,6 +1,5 @@
 package com.codeclan.xwingsquadviewer;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
 import static android.support.constraint.ConstraintSet.WRAP_CONTENT;
 
 public class RollDiceActivity extends AppCompatActivity {
@@ -34,8 +32,6 @@ public class RollDiceActivity extends AppCompatActivity {
     RadioButton fourDice;
     RadioButton fiveDice;
     RadioButton sixDice;
-
-    String diceTypeString;
 
     LinearLayout rollResultsImages;
 
@@ -92,11 +88,9 @@ public class RollDiceActivity extends AppCompatActivity {
         int diceTypeButton = diceType.getCheckedRadioButtonId();
         if (diceTypeButton == attackDiceButton.getId() ){
             rolledDice = new Dice(DiceType.ATTACK);
-            diceTypeString = "attack";
         }
         if (diceTypeButton == defenceDiceButton.getId() ){
             rolledDice = new Dice(DiceType.DEFENCE);
-            diceTypeString = "defence";
         }
 
         int diceNumberButton = numberOfDice.getCheckedRadioButtonId();
@@ -122,6 +116,7 @@ public class RollDiceActivity extends AppCompatActivity {
         int numberOfDiceRolled = 0;
         rollResultString = "";
 
+        //empty the linearlayout of results before adding the new roll's results
         rollResultsImages = (LinearLayout)findViewById(R.id.roll_results_images);
         rollResultsImages.removeAllViews();
 
@@ -134,10 +129,12 @@ public class RollDiceActivity extends AppCompatActivity {
                 rollResultString += ", ";
             }
 
+            //make a new imageview for each roll
             ImageView diceImage = new ImageView(this);
             diceImage.setLayoutParams(new android.view.ViewGroup.LayoutParams(WRAP_CONTENT,WRAP_CONTENT));
 
-            if (diceTypeString.equals("attack")){
+            //put an image into the imageview based on the dice type and result rolled
+            if (rolledDice.getType() == DiceType.ATTACK){
                 if (diceRoll.equals("Crit")){
                     diceImage.setImageResource(R.drawable.attack_crit);
                 }
@@ -152,7 +149,7 @@ public class RollDiceActivity extends AppCompatActivity {
                 }
             }
 
-            if (diceTypeString.equals("defence")){
+            if (rolledDice.getType() == DiceType.DEFENCE){
                 if (diceRoll.equals("Evade")){
                     diceImage.setImageResource(R.drawable.defence_evade);
                 }
@@ -164,6 +161,7 @@ public class RollDiceActivity extends AppCompatActivity {
                 }
             }
 
+            //add the imageview to the linearlayout of dice results
             rollResultsImages.addView(diceImage);
 
         }
