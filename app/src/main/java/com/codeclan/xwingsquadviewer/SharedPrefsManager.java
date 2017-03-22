@@ -26,7 +26,14 @@ public class SharedPrefsManager {
     public static ArrayList<Squad> loadSquadList(Context context){
         SharedPreferences sharedPref = context.getSharedPreferences(SQUADS, Context.MODE_PRIVATE);
         Gson gson = new Gson();
-        String squads = sharedPref.getString("squadList", "Nothing Found");
+        String squads = sharedPref.getString("squadList", "Nothing found");
+        Log.d("squads", squads);
+        //setting up default squads
+        if (squads.equals("Nothing found")){
+            SquadList defaultSquadList = new SquadList();
+            ArrayList<Squad> defaultSquads = defaultSquadList.getSquadList();
+            squads = gson.toJson(defaultSquads);
+        }
         TypeToken<ArrayList<Squad>> squadArrayList = new TypeToken<ArrayList<Squad>>(){};
         ArrayList<Squad> squadList = gson.fromJson(squads, squadArrayList.getType());
         return squadList;

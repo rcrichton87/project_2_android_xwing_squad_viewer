@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListSquadsAdapter" />
-        <activity android:name=".ShowSquad" />
+        <activity android:name=".ShowSquadActivity" />
         <activity android:name=".NewSquadActivity" />
         <activity android:name=".FilteredListActivity" />
         <activity android:name=".RollDiceActivity" />

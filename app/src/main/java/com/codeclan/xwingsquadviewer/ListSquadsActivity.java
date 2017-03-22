@@ -4,7 +4,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,13 +36,11 @@ public class ListSquadsActivity extends AppCompatActivity {
     public void squadClicked(View squad_item){
         Squad squad = (Squad) squad_item.getTag();
 
-        Log.d("Squad ID", squad.getId().toString());
-
         // save the squad as json
         SharedPrefsManager.saveIndividualSquad(squad, this);
 
         //go to the showsquad activity
-        Intent intent = new Intent(this, ShowSquad.class);
+        Intent intent = new Intent(this, ShowSquadActivity.class);
         startActivity(intent);
     }
 
@@ -150,7 +147,8 @@ public class ListSquadsActivity extends AppCompatActivity {
         SharedPrefsManager.saveSquadList(list, this);
         Toast.makeText(ListSquadsActivity.this, "Saved Squads Deleted", Toast.LENGTH_LONG).show();
 
-        Intent intent = getIntent();
+
+        Intent intent = new Intent(this, ListSquadsActivity.class);
         startActivity(intent);
     }
 

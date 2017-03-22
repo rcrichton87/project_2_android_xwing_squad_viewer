@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
-public class ShowSquad extends AppCompatActivity {
+public class ShowSquadActivity extends AppCompatActivity {
 
     Squad squad;
     ArrayList<Squad> squadList;
@@ -60,7 +60,7 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        Toast.makeText(ShowSquad.this, "Win added for " + squad.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(ShowSquadActivity.this, "Win Added for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
 
     }
@@ -81,7 +81,7 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        Toast.makeText(ShowSquad.this, "Win removed for " + squad.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(ShowSquadActivity.this, "Win Removed for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
 
     }
@@ -102,7 +102,7 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        Toast.makeText(ShowSquad.this, "Loss added for " + squad.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(ShowSquadActivity.this, "Loss Added for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
 
@@ -122,7 +122,7 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        Toast.makeText(ShowSquad.this, "Loss removed for " + squad.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(ShowSquadActivity.this, "Loss Removed for " + squad.getName(), Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
 
@@ -162,7 +162,7 @@ public class ShowSquad extends AppCompatActivity {
 
         //go back to the list
         Intent intent = new Intent(this, ListSquadsActivity.class);
-        Toast.makeText(ShowSquad.this, squad.getName() + " deleted!", Toast.LENGTH_LONG).show();
+        Toast.makeText(ShowSquadActivity.this, squad.getName() + " Deleted!", Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
 

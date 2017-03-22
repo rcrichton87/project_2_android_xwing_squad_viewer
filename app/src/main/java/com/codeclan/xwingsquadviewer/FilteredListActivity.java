@@ -35,7 +35,7 @@ public class FilteredListActivity extends AppCompatActivity {
         SharedPrefsManager.saveIndividualSquad(squad, this);
 
         //go to the showsquad activity
-        Intent intent = new Intent(this, ShowSquad.class);
+        Intent intent = new Intent(this, ShowSquadActivity.class);
         startActivity(intent);
     }
 }

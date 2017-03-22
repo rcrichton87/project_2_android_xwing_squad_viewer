@@ -2,6 +2,7 @@ package com.codeclan.xwingsquadviewer;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,19 +48,19 @@ public class ListSquadsAdapter extends ArrayAdapter<Squad> {
         TextView squadWinLossRatio = (TextView) listItemView.findViewById(R.id.squad_wins_losses);
         squadWinLossRatio.setText(currentSquad.getWinLossRatio().toString());
 
-        if (currentSquad.getWinLossRatio() < 0 ) {
+        if (currentSquad.getWinLossRatio() < 0) {
             squadWinLossRatio.setTextColor(Color.parseColor("#df0000")); //set to red if negative
         }
-        if (currentSquad.getWinLossRatio() > 0 ) {
+        if (currentSquad.getWinLossRatio() > 0) {
             squadWinLossRatio.setText("+" + currentSquad.getWinLossRatio().toString()); // put a + in front of the number
             squadWinLossRatio.setTextColor(Color.parseColor("#13df00")); //set to green if positive
         }
-        if ((currentSquad.getWinLossRatio() == 0 )){
+        if ((currentSquad.getWinLossRatio() == 0)) {
             squadWinLossRatio.setTextColor(Color.parseColor("#000000")); //set to black if 0
         }
 
         return listItemView;
-
     }
+
 
 }
